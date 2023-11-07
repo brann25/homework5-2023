@@ -1,0 +1,246 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-size: 16pt; /* test for this! Make all sizes em or rem */
+    font-family: 'Poppins', sans-serif;
+    background: url(../images/concrete_seamless.png) #f1f1f1;
+    overflow: hidden;
+  }
+  
+  header{
+    background: #fff;
+    border-bottom: 3px solid #50C7C7;
+    margin-bottom:20px;
+    /* start using flex*/
+    display: flex;
+    /* separate navbar and logo to different row*/
+    flex-direction: column;
+  }
+  
+  header img{
+    /* adding animation + name and time to use for keyframe and animation */
+    animation: logo 5s;  
+  }
+  /* keyframe to set what logo will change to be from samll to big and disappear to appear*/
+  @keyframes logo {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+  }
+  /* stop the animation for accessibility*/
+  @media (prefers-reduced-motion) {
+    header img{
+      animation: none;
+    }
+  }
+
+  h1{
+    font-size: 2em;
+    text-align: center;
+    line-height: 2;
+  }
+  
+  h2{
+    font-size: 1.5em;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  p {
+    padding: 0 30px;
+  }
+  
+  a.skip{
+    background: white;
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: -40px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+  }
+  
+  a.skip:focus{
+    top:20px;
+    color: black;
+    text-decoration-style: solid;
+  }
+  
+  *:focus{
+    border: 2px solid black;
+  }
+
+  .nav_links{
+    display: flex;
+    flex-direction: column;
+        text-align: center;
+    justify-content: center;
+  }
+
+  .nav_item a{
+    padding: 10px;
+  }
+  
+  .nav_item a:hover, a:focus{
+    color: #50C7C7;
+    text-decoration: underline;
+    -webkit-text-decoration-style: dotted;
+            text-decoration-style: dotted;
+  }
+  /* add flex to make the result look like provided sample*/
+  /* make the the defaukt to be column (vertical display)*/
+  .pricing{
+    min-height: 475px;
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+
+    margin: 12px;
+    background: #fff;
+    /* border-radius: 7px; */
+    padding: 0 0 25px 0;
+    border-radius: 50px 50px 7px 7px;
+    /* add starting size or prefered size of the card and make it centered*/
+    flex-basis: 450px;
+    max-width: 50%;
+    justify-content: center;
+
+    /* text-align: center; */
+    /* flex-basis: 450px; okay, the instruction got me confused over here */
+  }
+
+  .card > ul{
+    list-style: none;
+    padding-left: 5px;
+  }
+  
+  .card > ul li {
+    width: 90%;
+    margin: 20px auto;
+    
+  }
+
+.card button{
+    width: 90%;
+    height: 40px;
+    border: 0;
+    margin-left: 5%;
+    border-radius: 7px;
+    background: #288080;
+    color: white;
+    font-size: 1em;
+  }
+  
+  .card h3{
+    font-size: 4em;
+    color: white;
+    text-align: center;
+  }
+
+  /* set in-card color and design per instruction*/
+  .card > header{
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0 20px 0;
+    border-radius: 50px 50px 0 0;
+
+  }
+   /* making gallery become like a table*/
+  .gallery{
+    display: flex;
+    /* make content aligned horizontally and wrap it to make it stay in the frame of screen size*/
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* make it centered*/
+    justify-content: center;
+    align-items: center;
+    /* create space between each box*/
+    gap: 20px;
+    /* make the gallery stay apart from others part*/
+    padding: 10px;
+  }
+
+  .gallery img{
+    border: 10px solid #50C7C7;
+    width: 300px;
+    min-height: 250px;
+  }
+
+  footer{
+    background-color: black;
+    color: white;
+    padding: 30px;
+    text-align: center;
+  }
+
+  /* indicate what screen would look like beyond 900px */
+@media  screen and (min-width: 900px) {
+  main{
+    /* move content away from the animation navbar*/
+    margin-top: 10%;
+  }
+  header{
+    /* set navbar+logo to be horizontally aligned with flex*/
+    flex-direction: row;
+    width: 100%;
+    /* adjust the spacing and make it stayed*/
+    justify-content: space-between;
+    position: fixed;
+  }
+  .nav_links{
+    flex-direction: row;
+    /* justify-content: flex-end; */
+  }
+  .pricing{
+    /* return the layout of pricing to be horizon*/
+    flex-direction: row;
+  }
+  .card{
+    /* set width to slimmer box at 275px*/
+    flex-basis: 275px;
+  }
+  .card > header, .card > ul > li > header{
+    /* set header in main to stay in area*/
+    position: relative;
+  }
+}
+
+@media print {
+  body {
+    /* adjust print font-remove img bg*/
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f1f1;
+  }
+  /* set the header to have 2 different row for logo and navbar*/
+  header{ 
+    flex-direction: column;
+  }
+  /* set nav bar spacing*/
+  .nav_links{
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  /* set the pricing to be horizon*/
+  .pricing{
+    flex-direction: row;
+  }
+  /* set card border and size*/
+  .card{
+    border: 2px solid #45ADDD;
+    flex-basis: 325px;
+  }
+  /* disable gallery display when print*/
+  .gallery{
+    display: none;
+  }
+  /* no gallery title*/
+  #gallery{
+    display: none;
+  }
+}
+  
