@@ -191,6 +191,7 @@ body{
     /* adjust the spacing and make it stayed*/
     justify-content: space-between;
     position: fixed;
+    z-index: 20;
   }
   .nav_links{
     flex-direction: row;
@@ -207,6 +208,7 @@ body{
   .card > header, .card > ul > li > header{
     /* set header in main to stay in area*/
     position: relative;
+    z-index: 10;
   }
 }
 
