@@ -188,9 +188,10 @@ body{
     /* set navbar+logo to be horizontally aligned with flex*/
     flex-direction: row;
     width: 100%;
-    /* adjust the spacing and make it stayed*/
+    /* adjust the spacing and make it stayed */
     justify-content: space-between;
     position: fixed;
+    /* make it stay on top */
     z-index: 20;
   }
   .nav_links{
@@ -208,6 +209,7 @@ body{
   .card > header, .card > ul > li > header{
     /* set header in main to stay in area*/
     position: relative;
+    /* make it stay behind navbar */
     z-index: 10;
   }
 }
