@@ -26,6 +26,13 @@ body{
     from {width: 25px; opacity: 0;}
     to {width: 475px; opacity: 1;}
   }
+
+  @media (prefers-reduced-motion) {
+    header img{
+      animation: none;
+    }
+  }
+  
   h1{
     font-size: 2em;
     text-align: center;
