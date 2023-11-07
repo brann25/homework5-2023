@@ -2,14 +2,31 @@ body{
     margin: 0;
     padding: 0;
     font-size: 16pt; /* test for this! Make all sizes em or rem */
+    font-family: 'Poppins', sans-serif;
+    background: url(../images/concrete_seamless.png) #f1f1f1;
+    overflow: hidden;
   }
   
   header{
     background: #fff;
     border-bottom: 3px solid #50C7C7;
-    margin-bottom:20px
+    margin-bottom:20px;
+    
+    display: flex;
+
+    display: flex;
+    flex-direction: column;
   }
   
+  header img{
+    /* position: relative; */
+    animation: logo 5s infinite;
+  }
+
+  @keyframes logo {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+  }
   h1{
     font-size: 2em;
     text-align: center;
@@ -47,6 +64,12 @@ body{
     border: 2px solid black;
   }
 
+  .nav_links{
+    display: flex;
+    flex-direction: column;
+        text-align: center;
+    justify-content: center;
+  }
 
   .nav_item a{
     padding: 10px;
@@ -60,15 +83,30 @@ body{
   }
 
   .pricing{
+
     min-height: 475px;
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+
+
   }
 
   .card {
+
     margin: 12px;
     background: #fff;
-    border-radius: 7px;
+    /* border-radius: 7px; */
     padding: 0 0 25px 0;
-  
+    border-radius: 50px 50px 7px 7px;
+    flex-basis: 450px;
+    max-width: 50%;
+    justify-content: center;
+
+    /* text-align: center; */
+    /* flex-basis: 450px; okay, the instruction got me confused over here */
   }
 
   .card > ul{
@@ -99,6 +137,30 @@ body{
     text-align: center;
   }
   
+  .card > header{
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0 20px 0;
+    border-radius: 50px 50px 0 0;
+
+  }
+
+  .gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .gallery img{
+    border: 10px solid #50C7C7;
+    width: 300px;
+    min-height: 250px;
+  }
+
   footer{
     background-color: black;
     color: white;
@@ -106,4 +168,56 @@ body{
     text-align: center;
   }
 
+@media  screen and (min-width: 900px) {
+  main{
+    margin-top: 10%;
+  }
+  header{
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+  }
+  .nav_links{
+    flex-direction: row;
+    /* justify-content: flex-end; */
+  }
+  .pricing{
+    flex-direction: row;
+  }
+  .card{
+    flex-basis: 275px;
+  }
+  .card > header, .card > ul > li > header{
+    position: relative;
+  }
+}
+
+@media print {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1f1f1;
+  }
+  header{
+    flex-direction: column;
+  }
+  .nav_links{
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .pricing{
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  .card{
+    border: 2px solid #45ADDD;
+    flex-basis: 325px;
+  }
+  .gallery{
+    display: none;
+  }
+  #gallery{
+    display: none;
+  }
+}
   
